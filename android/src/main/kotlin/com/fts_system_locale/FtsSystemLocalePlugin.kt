@@ -2,22 +2,18 @@ package com.fts_system_locale
 
 import android.app.Application
 import android.app.LocaleManager
-import android.content.Context
 import android.os.Build
 import android.os.LocaleList
 import android.util.Log
 import androidx.annotation.NonNull
 import androidx.core.content.ContextCompat.getSystemService
-import androidx.core.os.LocaleListCompat
 import com.yariksoffice.lingver.Lingver
-
 import io.flutter.embedding.engine.plugins.FlutterPlugin
 import io.flutter.plugin.common.MethodCall
 import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
-import java.util.*
-import javax.xml.transform.OutputKeys.VERSION
+import java.util.Locale
 
 const val channelName = "fts_system_locale"
 
@@ -31,12 +27,12 @@ class FtsSystemLocalePlugin : FlutterPlugin, MethodCallHandler {
     private lateinit var application: Application
 
     override fun onAttachedToEngine(@NonNull flutterPluginBinding: FlutterPlugin.FlutterPluginBinding) {
+        channel = MethodChannel(flutterPluginBinding.binaryMessenger, channelName)
+        channel.setMethodCallHandler(this)
         application = flutterPluginBinding.applicationContext as Application
         if (Build.VERSION.SDK_INT < 33) {
             Lingver.init(application, Locale.getDefault())
         }
-        channel = MethodChannel(flutterPluginBinding.binaryMessenger, channelName)
-        channel.setMethodCallHandler(this)
     }
 
     private fun setAppLocale(locale: String?) {
