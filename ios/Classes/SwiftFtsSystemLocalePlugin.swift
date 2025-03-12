@@ -14,7 +14,6 @@ public class SwiftFtsSystemLocalePlugin: NSObject, FlutterPlugin {
         let locale = arguments["locale"] as! String
         let userDefaults = UserDefaults.standard
         userDefaults.set([locale], forKey: "AppleLanguages")
-//         userDefaults.synchronize()
         result(true)
     } else {
         result(FlutterMethodNotImplemented)

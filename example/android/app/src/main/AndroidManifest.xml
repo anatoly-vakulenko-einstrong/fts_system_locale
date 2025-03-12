@@ -6,7 +6,6 @@
     <application
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
-        android:localeConfig="@xml/locales_config"
         android:label="example"
         tools:targetApi="33">
         <activity

@@ -1,0 +1,22 @@
+PODS:
+  - Flutter (1.0.0)
+  - fts_system_locale (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `Flutter`)
+  - fts_system_locale (from `.symlinks/plugins/fts_system_locale/ios`)
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: Flutter
+  fts_system_locale:
+    :path: ".symlinks/plugins/fts_system_locale/ios"
+
+SPEC CHECKSUMS:
+  Flutter: e0871f40cf51350855a761d2e70bf5af5b9b5de7
+  fts_system_locale: 29e3ab8a741469b3b83f41a3209584ea22c94e67
+
+PODFILE CHECKSUM: 075ddf6b19cdcced44581bd8fbdfb58404a78f8a
+
+COCOAPODS: 1.16.2

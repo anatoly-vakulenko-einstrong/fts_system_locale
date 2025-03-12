@@ -46,12 +46,16 @@ class FtsSystemLocalePlugin : FlutterPlugin, MethodCallHandler {
             }
             Log.d(channelName, "Locale set to system default")
         } else {
+            val locale1 = Locale.forLanguageTag(locale)
+            val chunks = locale.split("_", "-")
+            val lang = chunks[0]
+            val region = if (chunks.size > 1) chunks[1] else "";
             if (Build.VERSION.SDK_INT >= 33) {
-                val localeList = LocaleList(Locale(locale))
+                val localeList = LocaleList(Locale(lang, region))
                 val localeManager = getSystemService(application, LocaleManager::class.java)
                 localeManager?.applicationLocales = localeList
             }else{
-                Lingver.getInstance().setLocale(application, locale)
+                Lingver.getInstance().setLocale(application, lang, region)
             }
             Log.d(channelName, "Locale set to $locale")
         }
